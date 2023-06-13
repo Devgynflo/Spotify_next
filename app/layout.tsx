@@ -1,6 +1,8 @@
 import Sidebar from "@/components/Sidebar";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import SupabaseProvider from "@/providers/Supabase.provider";
+import UserProvider from "@/providers/UserProvider";
 
 const font = Inter({ subsets: ["latin"] });
 
@@ -17,7 +19,11 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <body className={font.className}>
-        <Sidebar>{children}</Sidebar>
+        <SupabaseProvider>
+          <UserProvider>
+            <Sidebar>{children}</Sidebar>
+          </UserProvider>
+        </SupabaseProvider>
       </body>
     </html>
   );
