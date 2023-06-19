@@ -13,7 +13,7 @@ import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
 //Hooks
-import useAuthModal from "@/hooks/UseAuthModal";
+import useAuthModal from "@/hooks/useAuthModal";
 import { useUser } from "@/hooks/useUser";
 
 interface HeaderProps {
