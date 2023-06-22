@@ -8,8 +8,14 @@ import { useUser } from "@/hooks/useUser";
 
 // Icons
 import { TbPlaylist } from "react-icons/tb";
+import { Song } from "@/types";
+import MediaItem from "./MediaItem";
 
-export default function Library() {
+interface LibraryProps {
+  songs: Song[];
+}
+
+export default function Library({ songs }: LibraryProps) {
   const authModal = useAuthModal();
   const uploadModal = useUploadModal();
   const { user } = useUser();
@@ -19,7 +25,7 @@ export default function Library() {
       return authModal.onOpen();
     }
 
-    // TODO: Check for subscription  
+    // TODO: Check for subscription
 
     return uploadModal.onOpen();
   };
@@ -37,7 +43,11 @@ export default function Library() {
           size={20}
         />
       </div>
-      <div className="flex flex-col gap-y-2 mt-4 px-3">List of Songs</div>
+      <div className="flex flex-col gap-y-2 mt-4 px-3">
+        {songs.map((item) => (
+          <MediaItem key={item.id} data={item} onClick={() => {}} />
+        ))}
+      </div>
     </div>
   );
 }
