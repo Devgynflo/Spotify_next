@@ -9,9 +9,11 @@ interface SearchProps {
   };
 }
 
+export const revalidate = 0;
+
 const Search = async ({ searchParams }: SearchProps) => {
   const songs = await getSongsByTitle(searchParams.title);
-  console.log("🚀 ~ file: page.tsx:13 ~ Search ~ songs:", songs)
+  console.log("🚀 ~ file: page.tsx:13 ~ Search ~ songs:", songs);
   return (
     <div
       className="
