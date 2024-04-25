@@ -1,18 +1,19 @@
 "use client";
 
-import { useState } from "react";
-import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
-import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { toast } from "react-hot-toast";
+import uniqid from "uniqid";
 
 import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
 
 //Component
-import Modal from "./Modal";
-import Input from "./Input";
 import Button from "./Button";
+import Input from "./Input";
+import Modal from "./Modal";
 
 const UploadModal = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -45,7 +46,7 @@ const UploadModal = () => {
         return;
       }
 
-      const uniqueID = crypto.randomUUID();
+      const uniqueID = uniqid();
 
       // * Upload Song to Bucket Storage
       const { data: songData, error: songError } = await supabaseClient.storage
@@ -71,7 +72,7 @@ const UploadModal = () => {
 
       if (imageError) {
         setIsLoading(false);
-        return toast.error("Failed image upload");
+        return toast.error("Échec du téléchargement de l'image");
       }
 
       // * Insert query SQL to songs DB
@@ -91,11 +92,11 @@ const UploadModal = () => {
 
       router.refresh();
       setIsLoading(false);
-      toast.success("Song created!");
+      toast.success("Chanson créée !");
       reset();
       uploadModal.onClose();
     } catch (error) {
-      toast.error("Something went wrong");
+      toast.error("Quelque chose a mal tourné ");
     } finally {
       setIsLoading(false);
     }
@@ -103,8 +104,8 @@ const UploadModal = () => {
 
   return (
     <Modal
-      title="Add a song"
-      description="Upload a mp3 file"
+      title="Ajouter une chanson"
+      description="Télécharger un fichier mp3"
       isOpen={uploadModal.isOpen}
       onChange={onChange}
     >
@@ -113,16 +114,16 @@ const UploadModal = () => {
           id="title"
           disabled={isLoading}
           {...register("title", { required: true })}
-          placeholder={"Song title"}
+          placeholder={"Titre de la chanson"}
         ></Input>
         <Input
           id="author"
           disabled={isLoading}
           {...register("author", { required: true })}
-          placeholder={"Song author"}
+          placeholder={"Auteur de la chanson"}
         ></Input>
         <div>
-          <div className="pb-1">Select a song file</div>
+          <div className="pb-1">Sélectionner un fichier de chanson</div>
           <Input
             id="song"
             type="file"
@@ -132,7 +133,7 @@ const UploadModal = () => {
           ></Input>
         </div>
         <div>
-          <div className="pb-1">Select an image</div>
+          <div className="pb-1">Sélectionner une image</div>
           <Input
             id="image"
             type="file"
@@ -142,7 +143,7 @@ const UploadModal = () => {
           ></Input>
         </div>
         <Button type="submit" disabled={isLoading}>
-          Create
+          Créer
         </Button>
       </form>
     </Modal>

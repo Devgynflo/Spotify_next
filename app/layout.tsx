@@ -1,22 +1,22 @@
-import "./globals.css";
 import { Figtree } from "next/font/google";
+import "./globals.css";
 // Providers
-import SupabaseProvider from "@/providers/SupabaseProvider";
-import UserProvider from "@/providers/UserProvider";
 import ModalProvider from "@/providers/ModalProvider";
+import SupabaseProvider from "@/providers/SupabaseProvider";
 import ToasterProvider from "@/providers/ToasterProvider";
+import UserProvider from "@/providers/UserProvider";
 // Actions
-import getSongsByUserId from "@/actions/getSongsByUserId";
 import getActiveProductsWithPrices from "@/actions/getActiveProductsWithPrices";
+import getSongsByUserId from "@/actions/getSongsByUserId";
 // Component
-import Sidebar from "@/components/Sidebar";
 import Player from "@/components/Player";
+import Sidebar from "@/components/Sidebar";
 
 const font = Figtree({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Spotify next",
-  description: "Listen to music",
+  title: "Spotify Gynflo",
+  description: "Ecouter de la musique",
 };
 
 export const revalidate = 0;

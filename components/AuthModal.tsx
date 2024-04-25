@@ -34,8 +34,8 @@ const AuthModal = () => {
 
   return (
     <Modal
-      title="Welcome back"
-      description="Login to your account"
+      title="Bon retour parmi nous"
+      description="Se connecter"
       isOpen={isOpen}
       onChange={onChange}
     >

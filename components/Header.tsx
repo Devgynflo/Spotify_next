@@ -1,21 +1,21 @@
 "use client";
 
-import { useRouter } from "next/navigation";
-import { twMerge } from "tailwind-merge";
 import { useSupabaseClient } from "@supabase/auth-helpers-react";
+import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
+import { twMerge } from "tailwind-merge";
 
 // Components
 import Button from "./Button";
 // Icons
-import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
-import { HiHome } from "react-icons/hi";
 import { BiSearch } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
+import { HiHome } from "react-icons/hi";
+import { RxCaretLeft, RxCaretRight } from "react-icons/rx";
 //Hooks
 import useAuthModal from "@/hooks/useAuthModal";
-import { useUser } from "@/hooks/useUser";
 import usePlayer from "@/hooks/usePlayer";
+import { useUser } from "@/hooks/useUser";
 
 interface HeaderProps {
   children: React.ReactNode;
@@ -78,7 +78,7 @@ const Header = ({ children, className }: HeaderProps) => {
           {user ? (
             <div className="flex gap-x-4 items-center">
               <Button className="bg-white px-6 py-2" onClick={handleLogout}>
-                Logout
+                Déconnexion
               </Button>
               <Button
                 className="bg-white"
@@ -96,7 +96,7 @@ const Header = ({ children, className }: HeaderProps) => {
                   className="bg-transparent text-neutral-300 font-medium "
                   onClick={authModal.onOpen}
                 >
-                  Sign up
+                  S&apos;inscrire
                 </Button>
               </div>
               <div>
@@ -104,7 +104,7 @@ const Header = ({ children, className }: HeaderProps) => {
                   className="bg-white py-2 px-6"
                   onClick={authModal.onOpen}
                 >
-                  Log in
+                  Se connecter
                 </Button>
               </div>
             </>

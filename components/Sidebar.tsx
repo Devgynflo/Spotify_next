@@ -8,13 +8,13 @@ import usePlayer from "@/hooks/usePlayer";
 
 // Components
 import Box from "./Box";
-import SidebarItem from "./SidebarItem";
 import Library from "./Library";
+import SidebarItem from "./SidebarItem";
 
 // Icons
-import { HiHome } from "react-icons/hi";
-import { BiSearch } from "react-icons/bi";
 import { Song } from "@/types";
+import { BiSearch } from "react-icons/bi";
+import { HiHome } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 
 interface SidebarProps {
@@ -29,13 +29,13 @@ export default function Sidebar({ children, songs }: SidebarProps) {
     () => [
       {
         icon: HiHome,
-        label: "Home",
+        label: "Accueil",
         active: pathName !== "/search",
         href: "/",
       },
       {
         icon: BiSearch,
-        label: "Search",
+        label: "Rechercher",
         active: pathName === "search",
         href: "/search",
       },

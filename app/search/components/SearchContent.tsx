@@ -25,7 +25,7 @@ const SeachContent = ({ songs }: SearchContentProps) => {
                 text-neutral-400
             "
       >
-        No songs found.
+        Aucune chanson n&apos;a été trouvée.
       </div>
     );
   }

@@ -6,8 +6,8 @@ import { toast } from "react-hot-toast";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
 import { useUser } from "@/hooks/useUser";
 
-import { postData } from "@/libs/helpers";
 import Button from "@/components/Button";
+import { postData } from "@/libs/helpers";
 
 const AccountContent = () => {
   const router = useRouter();
@@ -42,9 +42,9 @@ const AccountContent = () => {
     <div className="mb-7 px-6">
       {!subscription && (
         <div className="flex flex-col gap-y-4">
-          <p>No active plan</p>
+          <p>Pas d&apos;abonnement actif.</p>
           <Button onClick={subscribeModal.onOpen} className="w-[300px]">
-            Subscribe
+            S&apos;abonner
           </Button>
         </div>
       )}
@@ -52,15 +52,15 @@ const AccountContent = () => {
       {subscription && (
         <div className="flex flex-col gap-y-4">
           <p>
-            You are currently on the{" "}
-            <b>{subscription.prices?.products?.name} plan</b>
+            Vous êtes actuellement sur la page{" "}
+            <b>{subscription.prices?.products?.name} abonnement</b>
           </p>
           <Button
             onClick={redirectToCustomerPortal}
             className="w-[300px]"
             disabled={loading || isLoading}
           >
-            Open Customer portal
+            Ouvrir le portail client
           </Button>
         </div>
       )}

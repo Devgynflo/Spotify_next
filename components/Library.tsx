@@ -3,15 +3,15 @@
 import { AiOutlinePlus } from "react-icons/ai";
 
 import useAuthModal from "@/hooks/useAuthModal";
+import useOnPlay from "@/hooks/useOnPlay";
 import useUploadModal from "@/hooks/useUploadModal";
 import { useUser } from "@/hooks/useUser";
-import useOnPlay from "@/hooks/useOnPlay";
 
 // Icons
-import { TbPlaylist } from "react-icons/tb";
-import { Song } from "@/types";
-import MediaItem from "./MediaItem";
 import useSubscribeModal from "@/hooks/useSubscribeModal";
+import { Song } from "@/types";
+import { TbPlaylist } from "react-icons/tb";
+import MediaItem from "./MediaItem";
 
 interface LibraryProps {
   songs: Song[];
@@ -42,7 +42,7 @@ export default function Library({ songs }: LibraryProps) {
       <div className="flex items-center justify-between px-5 pt-4">
         <div className="inline-flex items-center gap-x-2">
           <TbPlaylist size={26} className="text-neutral-400" />
-          <p className="text-neutral-400 font-medium text-md">Your Library</p>
+          <p className="text-neutral-400 font-medium text-md">Bibliothèque</p>
         </div>
         <AiOutlinePlus
           className="text-neutral-400 cursor-pointer hover:text-white transition"

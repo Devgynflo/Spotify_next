@@ -13,7 +13,6 @@ export const revalidate = 0;
 
 const Search = async ({ searchParams }: SearchProps) => {
   const songs = await getSongsByTitle(searchParams.title);
-  console.log("🚀 ~ file: page.tsx:13 ~ Search ~ songs:", songs);
   return (
     <div
       className="
@@ -34,7 +33,7 @@ const Search = async ({ searchParams }: SearchProps) => {
             className="
               text-white text-3xl font-semibold"
           >
-            Search
+            Rechercher
           </h1>
           <SearchInput />
         </div>
